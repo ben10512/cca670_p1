@@ -1,10 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  # Disclaimer: This template was originally provided by AWS as a template:
-  # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer-walkthrough-createbasicwebserver.html
-  # Edits were made to the scripts and services allowing for jenkins to be installed.
-  # additionally, the subnet was modified to support Jenkins' web traffic on port 8080. 
-  "Description": "AWS CloudFormation Sample Template VPC_Single_Instance_In_Subnet: Sample template showing how to create a VPC and add an EC2 instance with an Elastic IP address and a security group."
+  "Description": "AWS CloudFormation Sample Template VPC_Single_Instance_In_Subnet: Sample template showing how to create a VPC and add an EC2 instance with an Elastic IP address and a security group.",
   "Parameters": {
     "InstanceType": {
       "Description": "WebServer EC2 instance type",
