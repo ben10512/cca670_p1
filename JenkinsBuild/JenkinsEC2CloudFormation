@@ -3,7 +3,7 @@
   "Description": "AWS CloudFormation Sample Template VPC_Single_Instance_In_Subnet: Sample template showing how to create a VPC and add an EC2 instance with an Elastic IP address and a security group.",
   "Parameters": {
     "InstanceType": {
-      "Description": "WebServer EC2 instance type",
+      "Description": "Jenkins EC2 instance type",
       "Type": "String",
       "Default": "t2.micro",
       "AllowedValues": [
@@ -361,7 +361,7 @@
         }
       }
     },
-    "WebServerSecurityGroup": {
+    "JenkinsSecurityGroup": {
       "Type": "AWS::EC2::SecurityGroup",
       "Properties": {
         "VpcId": {
@@ -397,7 +397,7 @@
         }
       }
     },
-    "WebServerInstance": {
+    "JenkinsInstance": {
       "Type": "AWS::EC2::Instance",
       "Metadata": {
         "AWS::CloudFormation::Init": {
@@ -467,7 +467,7 @@
           {
             "GroupSet": [
               {
-                "Ref": "WebServerSecurityGroup"
+                "Ref": "JenkinsSecurityGroup"
               }
             ],
             "AssociatePublicIpAddress": "true",
@@ -491,7 +491,7 @@
                 {
                   "Ref": "AWS::StackName"
                 },
-                "         --resource WebServerInstance ",
+                "         --resource JenkinsInstance ",
                 "         --configsets All ",
                 "         --region ",
                 {
@@ -504,7 +504,7 @@
                 {
                   "Ref": "AWS::StackName"
                 },
-                "         --resource WebServerInstance ",
+                "         --resource JenkinsInstance ",
                 "         --region ",
                 {
                   "Ref": "AWS::Region"
@@ -531,7 +531,7 @@
             "http://",
             {
               "Fn::GetAtt": [
-                "WebServerInstance",
+                "JenkinsInstance",
                 "PublicIp"
               ]
             }
